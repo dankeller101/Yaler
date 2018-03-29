@@ -46,14 +46,15 @@ var Container = React.createClass({
                   FBid: FBUid
                 });
                 graph.setAccessToken(FBAuth);
-                graph.get(FBUid + "?fields=picture", function(err, res){
-                  console.log(res);
+                graph.get(FBUid + "?fields=picture", (err, res) => {
                   var picture = res.picture.data.url;
-                  var picture = picture.substring(0, picture.length - 17);
-                  console.log(picture);
+                  var picture = picture.substring(0, picture.length - 18);
+                  picture = picture.concat("height=250&width=250");
+                  this.setState({
+                    profile: picture,
+                  });
                 });
-                graph.get(FBUid + "?fields=id,name,birthday,gender", function(err, res) {
-                  console.log(res);
+                graph.get(FBUid + "?fields=id,name,gender", (err, res) => {
                   var name = res.name.split(" ");
                   name = name[0];
                   this.setState({

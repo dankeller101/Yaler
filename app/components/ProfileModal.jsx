@@ -3,35 +3,22 @@ var ProfilePane = require('ProfilePane');
 
 var ProfileModal = React.createClass({
 
-  getInitialState: function() {
-    return {
-      active: this.props.active,
-    };
-  },
-
-  closeModal: function() {
-    this.setState({
-      active: " ",
-    });
-  },
-
-  componentWillReceiveProps: function() {
-    this.setState({
-      active: this.props.active,
-    });
-  },
-
   render: function() {
     return (
-      <div className={"modal-override modal " + this.state.active} id="modal-id">
-        <a onClick={this.closeModal} className="modal-overlay" aria-label="Close"></a>
-        <div className="modal-container">
-          <div className="modal-header">
-            <a onClick={this.closeModal} className="btn btn-clear float-right" aria-label="Close"></a>
-          </div>
-        <div className="modal-body">
+      <div
+        className={" modal " + (this.props.active ? "active" : " ")}
+        id="modal-id">
+        <a onClick={this.props.onClose} className="modal-overlay" aria-label="Close"></a>
+        <div className="modal-override modal-container">
+        <div className="modal-body modal-body-override"
+          >
           <div className="content">
-            <ProfilePane/>
+            <ProfilePane
+              name={this.props.name}
+              age={this.props.age}
+              profileIMG="https://lookaside.facebook.com/platform/profilepic/?asid=1815247825152279&height=250&width=250"
+              bio={this.props.bio}
+            />
           </div>
         </div>
       </div>

@@ -84,7 +84,7 @@ var ChatAnswer = React.createClass({
   render: function() {
     return (
       <ReactCSSTransitionGroup
-        className="container"
+        className="container custom-Answer"
         component="div"
         transitionName="fade"
         transitionEnterTimeout={800}

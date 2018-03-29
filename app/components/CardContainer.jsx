@@ -1,8 +1,11 @@
 var React = require('react');
 import Cards, { Card } from 'react-swipe-card';
 var ProfileModal = require('ProfileModal');
+var ProfilePaneNoBio = require('ProfilePaneNoBio');
 var firebase = require('firebaseapp');
-var $ = require('jquery');
+var Panel = require('Panel');
+var Chat = require('Chat');
+
 
 var CardContainer = React.createClass({
 
@@ -10,52 +13,108 @@ var CardContainer = React.createClass({
     return {
       active: " ",
       currentState: this.props.currentState,
+      open: true,
     };
   },
 
-  activateModal: function() {
+  componentWillReceiveProps: function (nextProps) {
     this.setState({
-      active: "active"
+      currentState: nextProps.currentState,
+    });
+  },
+
+  activateModal: function(bio) {
+    this.setState({
+      active: bio
+    });
+  },
+
+  deactivateModal: function() {
+    this.setState({
+      active: " ",
     });
   },
 
   render: function() {
     var {data} = this.props;
-    return (
-      <div>
-	     <Cards onEnd={this.end} className='master-root' id="card-container">
-         {data.map(item =>
-           <Card
-             key={item.name}
-             id={item.bio}
-             onSwipeLeft={this.left}
-             onSwipeRight={this.right}
-             >
-            <div>
-             <div className="card">
-               <div className="card-image">
-                 <img src="./img/Whiffs.jpg" className="img-responsive rounded"/>
-               </div>
-               <div className="card-header">
-                 <div className="card-title h5">{item.name + ", " + item.age}</div>
-                 <div className="card-subtitle text-gray">Yale University</div>
-               </div>
-               <div className="card-body">
-                 {item.bio}
-               </div>
-                <div className="card-footer">
-                  <button
-                    onClick={this.activateModal}
-                    className="btn btn-primary">
-                    View Profile
-                  </button>
+    var cards = <div className="columns">
+                <div className="column col-12">
+                  <Cards onEnd={this.end} className='master-root card-pos' id="card-container">
+                    {data.map(item =>
+                      <Card
+                        key={item.name}
+                        id={item.bio}
+                        onSwipeLeft={this.left}
+                        onSwipeRight={this.right}
+                        >
+                         <div>
+                            <ProfilePaneNoBio
+                              activateModal={this.activateModal}
+                              name={item.name}
+                              age={item.age}
+                              bio={item.bio}
+                            />
+                          </div>
+                        </Card>
+                      )}
+                    </Cards>
                 </div>
-              </div>
-            </div>
-           </Card>
-         )}
-       </Cards>
-       <ProfileModal active={this.state.active}/>
+                <div>
+                  <h5 className="swipe-left-pos">
+                    Swipe <i className="icon icon-back"></i> if you aren't interested!
+                  </h5>
+                  <h5 className="swipe-right-pos">
+                    Swipe <i className="icon icon-forward"></i> if you are interested!
+                  </h5>
+                  <h5 className="bio-info-pos">
+                    For more info, click on their <i className="icon icon-photo"></i>!
+                  </h5>
+                </div>
+              </div>;
+    if (this.state.currentState < 0) {
+      cards = <div className="columns">
+                  <div className="column col-12">
+                    <Chat/>
+                  </div>
+              </div>;
+    }
+    return (
+      <div className="columns">
+        <header className="navbar navbar-custom">
+          <section className="navbar-section" style={{
+            position: 'relative',
+            left: '10px',
+          }}>
+            <h5 href="#" className="btn btn-link">Yaler</h5>
+          </section>
+          <section className="navbar-center">
+            YALER
+          </section>
+          <section className="navbar-section" style={{
+            position: 'relative',
+            right: '20px',
+          }}>
+            <button href="#" className="btn btn-primary">Login</button>
+          </section>
+        </header>
+        <div className="column col-3">
+          <Panel/>
+        </div>
+        <div className="column col-9">
+          {cards}
+       </div>
+       <div>
+         {data.map(item =>
+           <ProfileModal
+             key={item.bio}
+             active={this.state.active === item.bio}
+             bio={item.bio}
+             age={item.age}
+             name={item.name}
+             onClose={this.deactivateModal}
+           />
+        )}
+       </div>
      </div>
     );
   },
@@ -65,11 +124,28 @@ var CardContainer = React.createClass({
   },
 
   left: function() {
+    event.stopPropagation();
     this.updateCurrentState();
   },
 
   right: function() {
-    this.updateCurrentState();
+    event.stopPropagation();
+    if (this.state.currentState % 3 === 0) {
+      this.moveToChat();
+    } else {
+      this.updateCurrentState();
+    }
+  },
+
+  moveToChat: function () {
+    this.setState({currentState: -1});
+    firebase.writeCurrentState(this.props.uid, -1);
+  },
+
+  firstRight: function() {
+    this.setState({
+      open: false,
+    });
   },
 
   updateCurrentState: function() {
