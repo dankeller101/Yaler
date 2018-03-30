@@ -119,7 +119,7 @@ var CardContainer = React.createClass({
             position: 'relative',
             right: '20px',
           }}>
-            <button href="#" className="btn btn-primary">Login</button>
+            <button href="#" className="btn btn-link">Logout</button>
           </section>
         </header>
         <div className="column col-3">

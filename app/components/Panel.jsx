@@ -15,6 +15,9 @@ var Panel = React.createClass({
       2.  Danny likes to be there for his friends \
       3.  Danny one time sang lead in a prog metal band. \
       ";
+    var ChatAdvice = this.props.currentState >= 0
+      ? ""
+      : "You can scroll through messages to see all of them.";
     return (
       <div className="panel custom-panel">
         <div className="panel-body">
@@ -23,6 +26,9 @@ var Panel = React.createClass({
               <p className="empty-subtitle">{emptySub}</p>
               <p className="empty-subtitle">
                 {emptyFacts}
+              </p>
+              <p className="empty-subtitle">
+                {ChatAdvice}
               </p>
             </div>
         </div>

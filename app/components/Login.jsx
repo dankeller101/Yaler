@@ -1,5 +1,6 @@
 var React = require('react');
 var firebaseUISetup = require('FirebaseUISetup');
+var CenteredHeader = require('CenteredHeader');
 
 var firebase = require('firebaseapp');
 
@@ -31,20 +32,37 @@ var Login = React.createClass({
       button = <div className="columns">
             <div className="column col-3"/>
             <div className="column col-8">
-              <h3>Logged in!</h3>
               <button onClick={this.handleLogout}>Log out </button>
             </div>
           </div>;
     }
     return (
       <div>
-        {/* <NavBar current_uid={this.props.current_uid}/> */}
+        <header className="navbar navbar-custom">
+          <section className="navbar-section" style={{
+            position: 'relative',
+            left: '10px',
+          }}>
+            <h5 href="#" className="btn btn-link">
+              YALER
+            </h5>
+          </section>
+          <section className="navbar-center">
+            YALER
+          </section>
+          <section className="navbar-section" style={{
+            position: 'relative',
+            right: '20px',
+          }}>
+            <button href="#" className="btn btn-primary">Login</button>
+          </section>
+        </header>
         <div className="container beneath-nav background-div">
           <div className="columns full-height">
             <div className="column col-2 "/>
             <div className="column col-8 focus-div">
               <div className="container vertical-center">
-                {/* <CenteredHeader title="Login" size="small"/> */}
+                <CenteredHeader title="Login to Yaler" size="medium"/>
                 <div className="columns">
                   <div className="column col-3"/>
                   <div className="column col-6 ">

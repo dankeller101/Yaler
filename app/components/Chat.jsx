@@ -24,10 +24,8 @@ var Chat = React.createClass({
 
   render: function() {
     return (
-      <div
-      style={{
-        height: '62%',
-      }}>
+      <div>
+        <div className="chat-container">
         <ChatFeed
           messages={this.state.messages} // Boolean: list of message objects
           isTyping={false} // Boolean: is the recipient typing
@@ -46,10 +44,12 @@ var Chat = React.createClass({
               }
             }
           }
-        />
+        /></div>
+        <div id="myotherdiv">
         <ChatAnswer
           onNewMessage={this.handleNewMessage}
         />
+        </div>
       </div>
     );
   },

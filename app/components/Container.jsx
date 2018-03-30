@@ -46,12 +46,13 @@ var Container = React.createClass({
                   FBid: FBUid
                 });
                 graph.setAccessToken(FBAuth);
-                graph.get(FBUid + "?fields=picture", (err, res) => {
+                var params = {
+                  fields: "picture.height(250).width(250)",
+                };
+                graph.get(FBUid, params, (err, res) => {
                   var picture = res.picture.data.url;
-                  var picture = picture.substring(0, picture.length - 18);
-                  picture = picture.concat("height=250&width=250");
                   this.setState({
-                    profile: picture,
+                    profile:picture,
                   });
                 });
                 graph.get(FBUid + "?fields=id,name,gender", (err, res) => {
@@ -137,14 +138,14 @@ var Container = React.createClass({
   return (
     <HashRouter>
       <Switch>
-        <Route exact path='/' render={(props) => {
+        <Route exact path='/swipe' render={(props) => {
           return <CardContainer
             data={this.state.profiles}
             currentState={this.state.currentState}
             uid={this.state.current_uid}
           />;
         }}/>
-        <Route exact path="/login" render={(props) => {
+        <Route exact path="/" render={(props) => {
           return <Login
             {...props}
             current_uid={this.state.current_uid}
@@ -158,11 +159,6 @@ var Container = React.createClass({
             profileIMG={this.state.profile}
             current_uid={this.state.current_uid}
           />
-        }}/>
-        <Route exact path="/chat" render={(props) => {
-          return <Chat
-            {...props}
-          />;
         }}/>
       </Switch>
     </HashRouter>

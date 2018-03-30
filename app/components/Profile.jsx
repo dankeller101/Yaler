@@ -45,39 +45,36 @@ var Profile = React.createClass({
 
   render: function() {
     return (
+      <div>
+        <header className="navbar navbar-custom">
+          <section className="navbar-section" style={{
+            position: 'relative',
+            left: '10px',
+          }}>
+            <h5 href="#" className="btn btn-link">
+              YALER
+            </h5>
+          </section>
+          <section className="navbar-center">
+            YALER
+          </section>
+          <section className="navbar-section" style={{
+            position: 'relative',
+            right: '20px',
+          }}>
+            <button href="#" className="btn btn-link">Logout</button>
+          </section>
+        </header>
       <div className="container">
         <div className="column col-12 space-y-1"/>
         <div className="columns">
           <div className="column col-4">
             <div className="columns">
-              <div className="column col-1"></div>
-              <div className="column col-10">
-                <h3>Update Your Bio and Photo</h3>
+              <div className="column col-7 centered">
+                <h3>Update Your Bio</h3>
               </div>
             </div>
             <form className="form">
-              <div className="columns">
-
-                <div className="column col-12 space-y-2"></div>
-                <div className="column col-2"></div>
-                <div className="column col-10">
-                  <h5>Press the Button, picture yourself</h5>
-                </div>
-
-                <div className="column col-12 space-y-1"></div>
-                <div className="column col-5"></div>
-                <div className="column col-4">
-                  <div className="form-group">
-                    <button className="btn btn-primary" onClick={() => {
-                      this.getProfile(this.props.current_uid, this)
-                    }}>
-                      Get Profile
-                    </button>
-                  </div>
-                </div>
-                <div className="column col-3"></div>
-              </div>
-
 
               <div className="column col-12 space-y-1"></div>
 
@@ -91,6 +88,15 @@ var Profile = React.createClass({
                       onChange={this.onChangeBio}
                       value={this.state.bio}
                       ></textarea>
+                  </div>
+                  <div className="form-group">
+                    <button
+                      onClick={() => {
+                        this.props.history.push('/swipe');
+                      }}
+                      className="btn btn-primary">
+                      Get Swiping!
+                    </button>
                   </div>
                 </div>
               </div>
@@ -126,6 +132,7 @@ var Profile = React.createClass({
 
           </div>
         </div>
+      </div>
       </div>
     );
   },

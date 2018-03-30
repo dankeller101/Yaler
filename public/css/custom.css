@@ -7,6 +7,11 @@
   border: 1px solid #e5e5e5;
 }
 
+.beneath-nav {
+  position: absolute;
+  top:20%;
+}
+
 .card {
   background-color: white;
   background-size: cover;
@@ -24,9 +29,20 @@
   position: absolute;
   left: 25%;
   top: 50%;
+  background-color: white;
+  height: 58%;
 }
 
+.chat-container {
+  z-index: -1;
+  max-height: 43%;
+  overflow: scroll;
+  position: absolute;
+  left: 26%;
+  width: 74%;
+  height:43%;
 
+}
 
 .custom-panel {
   position: absolute;

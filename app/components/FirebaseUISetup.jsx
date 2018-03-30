@@ -3,13 +3,13 @@ var firebase = require('firebaseapp');
 
 var firebaseApp = firebase.getFirebase();
 var uiConfig = {
-  signInSuccessUrl: 'localhost:3000/',
+  signInSuccessUrl: '/#/profile',
   signInOptions: [
     firebaseApp.auth.FacebookAuthProvider.PROVIDER_ID,
     firebaseApp.auth.EmailAuthProvider.PROVIDER_ID,
   ],
   // Terms of service url.
-  tosUrl: 'localhost:3000/',
+  tosUrl: 'localhost:3000/tos',
   callbacks: {
     signInSuccess: function(currentUser, credential, redirectUrl) {
       var facebookUid;
