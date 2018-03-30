@@ -6,7 +6,7 @@ var ProfilePaneNoBio = React.createClass({
       <div className="card">
         <div className="card-image">
           <img
-            src="https://lookaside.facebook.com/platform/profilepic/?asid=1815247825152279&height=250&width=250"
+            src="./img/Whiffs.jpg"
             className="img-responsive rounded"
             onClick={() => {
              this.props.activateModal(this.props.bio);
