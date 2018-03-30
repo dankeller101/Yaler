@@ -2,12 +2,28 @@ var React = require('React');
 
 var Panel = React.createClass({
   render: function() {
+    var emptyTitle = this.props.currentState >= 0
+      ? "You do not have any matches."
+      : "You have found the perfect match.";
+    var emptySub = this.props.currentState >= 0
+      ? "Swipe more to find love!"
+      : "His name is Danny.  You should feel blessed.";
+    var emptyFacts = this.props.currentState >= 0
+      ? ""
+      : "Fun facts about Danny: \
+      1.  Danny likes to read. \
+      2.  Danny likes to be there for his friends \
+      3.  Danny one time sang lead in a prog metal band. \
+      ";
     return (
       <div className="panel custom-panel">
         <div className="panel-body">
           <div className="empty custom-empty">
-              <p className="empty-title h5">You do not have any matches.</p>
-              <p className="empty-subtitle">Swipe more to find love!</p>
+              <p className="empty-title h5">{emptyTitle}</p>
+              <p className="empty-subtitle">{emptySub}</p>
+              <p className="empty-subtitle">
+                {emptyFacts}
+              </p>
             </div>
         </div>
       </div>

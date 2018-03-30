@@ -5,6 +5,7 @@ var ProfilePaneNoBio = require('ProfilePaneNoBio');
 var firebase = require('firebaseapp');
 var Panel = require('Panel');
 var Chat = require('Chat');
+var AdviceModalManager = require('AdviceModalManager');
 
 
 var CardContainer = React.createClass({
@@ -14,6 +15,8 @@ var CardContainer = React.createClass({
       active: " ",
       currentState: this.props.currentState,
       open: true,
+      adviceModal: false,
+      stageAdviceModal: 0,
     };
   },
 
@@ -32,6 +35,26 @@ var CardContainer = React.createClass({
   deactivateModal: function() {
     this.setState({
       active: " ",
+    });
+  },
+
+  closeAdviceModal: function() {
+    this.setState({
+      adviceModal: false,
+    });
+  },
+
+  closeMatchModal: function() {
+    this.moveToChat();
+    this.setState({
+      adviceModal: false,
+    });
+  },
+
+  activateAdviceModal: function(stage) {
+    this.setState({
+      adviceModal: true,
+      stageAdviceModal: stage,
     });
   },
 
@@ -85,10 +108,12 @@ var CardContainer = React.createClass({
             position: 'relative',
             left: '10px',
           }}>
-            <h5 href="#" className="btn btn-link">Yaler</h5>
+            <h5 href="#" className="btn btn-link">
+              {this.props.currentState >= 0 ? "YALER" : "The Danny App"}
+            </h5>
           </section>
           <section className="navbar-center">
-            YALER
+            {this.props.currentState >= 0 ? "YALER" : "Danny, 22 Messenger"}
           </section>
           <section className="navbar-section" style={{
             position: 'relative',
@@ -98,10 +123,21 @@ var CardContainer = React.createClass({
           </section>
         </header>
         <div className="column col-3">
-          <Panel/>
+          <Panel
+            currentState={this.props.currentState}
+          />
         </div>
         <div className="column col-9">
           {cards}
+       </div>
+       <div>
+         <AdviceModalManager
+           handleMatchClose={this.closeMatchModal}
+           handleClose={this.closeAdviceModal}
+           handleActivate={this.activateAdviceModal}
+           active={this.state.adviceModal}
+           stage={this.state.stageAdviceModal}
+         />
        </div>
        <div>
          {data.map(item =>
@@ -130,8 +166,29 @@ var CardContainer = React.createClass({
 
   right: function() {
     event.stopPropagation();
-    if (this.state.currentState % 3 === 0) {
-      this.moveToChat();
+    if (this.state.currentState % 3 === 0 && this.state.currentState !== 0) {
+      this.activateAdviceModal(11);
+    } else if (this.state.currentState === 0) {
+      this.activateAdviceModal(0);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 1) {
+      this.activateAdviceModal(1);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 2) {
+      this.activateAdviceModal(4);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 4) {
+      this.activateAdviceModal(6);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 5) {
+      this.activateAdviceModal(8);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 7) {
+      this.activateAdviceModal(9);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 8) {
+      this.activateAdviceModal(10);
+      this.updateCurrentState();
     } else {
       this.updateCurrentState();
     }
