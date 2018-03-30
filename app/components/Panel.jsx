@@ -10,7 +10,7 @@ var Panel = React.createClass({
       : "His name is Danny.  You should feel blessed.";
     var emptyFacts = this.props.currentState >= 0
       ? ""
-      : "Fun facts about Danny: \
+      : "Two truths and a lie about Danny: \
       1.  Danny likes to read. \
       2.  Danny likes to be there for his friends \
       3.  Danny one time sang lead in a prog metal band. \

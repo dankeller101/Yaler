@@ -8,18 +8,76 @@ var Chat = React.createClass({
       messages: [
         new Message({
           id: 1,
-          message: "I'm the recipient! (The person you're talking to)",
+          message: "Hey, what's up?",
         }),
       ],
+      isTyping: false,
+      stage: 0,
     };
   },
 
+  sleep: function(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+      if ((new Date().getTime() - start) > milliseconds){
+        break;
+      }
+    }
+  },
+
   handleNewMessage: function(newMessage){
-    var newMess = new Message({
-      id: 0,
-      message: newMessage,
+    var newMess;
+    if (this.state.stage === 1) {
+      newMess = new Message({
+        id: 0,
+        message: "I swiped right because " + newMessage,
+      });
+    } else if (this.state.stage === 2) {
+      newMess = new Message({
+        id: 0,
+        message: "If I had not matched with you, I would have been " + newMessage,
+      });
+    } else {
+      newMess = new Message({
+        id: 0,
+        message: newMessage,
+      });
+    }
+    var stage = this.state.stage;
+    this.setState({
+      messages: this.state.messages.concat(newMess),
+      stage: stage + 1,
+      isTyping: true,
+    }, () => {
+      if (stage + 1 === 1) {
+        var newMess = new Message({
+          id: 1,
+          message: "Oh, you're way too kind.",
+        });
+        this.setState({
+          messages: this.state.messages.concat(newMess),
+          isTyping: false,
+        });
+      } else if (stage + 1 === 2) {
+        var newMess = new Message({
+          id: 1,
+          message: "Wow, I didn't know you felt that way.",
+        });
+        this.setState({
+          messages: this.state.messages.concat(newMess),
+          isTyping: false,
+        });
+      } else if (stage + 1 === 3) {
+        var newMess = new Message({
+          id: 1,
+          message: "Same, i feel the exact same way",
+        });
+        this.setState({
+          messages: this.state.messages.concat(newMess),
+          isTyping: false,
+        });
+      }
     });
-    this.setState({messages: this.state.messages.concat(newMess)});
   },
 
   render: function() {
@@ -28,7 +86,7 @@ var Chat = React.createClass({
         <div className="chat-container">
         <ChatFeed
           messages={this.state.messages} // Boolean: list of message objects
-          isTyping={false} // Boolean: is the recipient typing
+          isTyping={this.state.isTyping} // Boolean: is the recipient typing
           hasInputField={false} // Boolean: use our input, or use your own
           showSenderName // show the name of the user who sent the message
           bubblesCentered={false} //Boolean should the bubbles be centered in the feed?
