@@ -81,54 +81,154 @@ var Container = React.createClass({
       currentState: 0,
       profiles: [
         {
-          name: "Test",
-          age: "20",
-          bio: "The latest in filling space, I'll be the best at filling your space"
+          name: "Emil",
+          age: "21",
+          bio: <div>
+            Psych Major
+            <div className="text-break"></div>
+              (6’ 3” -5” + 3”) / 2 + 29.5”
+            <div className="text-break"></div>
+              Queso or don’t talk"
+          </div>,
+          photo: "./img/Emil.jpg",
         },
         {
           name: "Emma",
           age: "19",
-          bio: "Majoring in mechanical engineering and art history because some day I'd like to make a Van Gogh"
+          bio: <div>
+Got drunk and bought a tandem bike
+            <div
+              className="text-break"
+              style={{height:'40px'}}></div>;)
+          </div>,
+          photo: "./img/Emma.jpg",
         },
         {
           name: "Tyler",
           age: "21",
-          bio: "bada dada daa    I'm loving it."
+          bio: <div>
+            On this after a long relationship
+            <div
+              className="text-break"
+              style={{height:'40px'}}></div>
+              Gertude, take me back
+          </div>,
+          photo: "./img/Tyler.jpg",
         },
         {
           name: "Danny",
           age: "22",
-          bio: "Hot, Fancy, Shmancy, the perfect Man",
+          bio: <div>Founder of Yaler</div>,
+          photo: "./img/Danny1.jpg",
         },
         {
           name: "Isaac",
           age: "20",
-          bio: "6'0\" - 3\" + 2' / 2"
+          bio: <div>
+            Girlfriend Gertrude and I are looking for a third
+          </div>,
+          photo: "./img/Isaac.jpg",
         },
         {
-          name: "Nick",
+          name: "Mary",
           age: "22",
-          bio: "Grindr broke"
+          bio: <div> Looking for a kidney, ideally ASAP
+          </div>,
+          photo: "./img/Mary.jpg",
         },
         {
           name: "Danny",
           age: "22",
-          bio: "Rated by mothers across the globe as the perfect future husband"
+          bio: <div>Rated by mothers across the globe as the perfect future husband</div>,
+          photo: "./img/Danny2.jpg",
         },
         {
-          name: "Aïssa",
-          age: "18",
-          bio: "Haven't learned how to sleep at college yet"
+          name: "Ana",
+          age: "21",
+          bio: <div>
+            At Yale I'm majoring in Poli Sci, but at home I'll always be a major dissapointment.
+          </div>,
+          photo: "./img/Ana.png",
         },
         {
           name: "Meg",
           age: "21",
-          bio: "At Yale I'm majoring in Art History, but at home I'll always be a major dissapointment.",
+          bio: <div>
+            Venmo me $10 and I’ll have a good time
+          </div>,
+          photo: "./img/Tandoor.jpg",
         },
         {
           name: "Danny",
           age: "22",
-          bio: "Ayyyyyy it's me again"
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/Danny3.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/Danny4.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/Danny5.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannySci1.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannySci2.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannySci3.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannyVod1.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannyVod2.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannyVod3.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannyJew1.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannyJew2.png",
+        },
+        {
+          name: "Danny",
+          age: "22",
+          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          photo: "./img/DannyJew3.png",
         }
       ],
     };

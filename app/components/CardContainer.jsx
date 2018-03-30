@@ -65,7 +65,7 @@ var CardContainer = React.createClass({
                   <Cards onEnd={this.end} className='master-root card-pos' id="card-container">
                     {data.map(item =>
                       <Card
-                        key={item.name}
+                        key={item.picture}
                         id={item.bio}
                         onSwipeLeft={this.left}
                         onSwipeRight={this.right}
@@ -76,6 +76,7 @@ var CardContainer = React.createClass({
                               name={item.name}
                               age={item.age}
                               bio={item.bio}
+                              photo={item.photo}
                             />
                           </div>
                         </Card>
@@ -142,9 +143,10 @@ var CardContainer = React.createClass({
        <div>
          {data.map(item =>
            <ProfileModal
-             key={item.bio}
+             key={item.picture}
              active={this.state.active === item.bio}
              bio={item.bio}
+             photo={item.photo}
              age={item.age}
              name={item.name}
              onClose={this.deactivateModal}
@@ -166,7 +168,8 @@ var CardContainer = React.createClass({
 
   right: function() {
     event.stopPropagation();
-    if (this.state.currentState % 3 === 0 && this.state.currentState !== 0) {
+    if ((this.state.currentState % 3 === 0 && this.state.currentState !== 0) ||
+      this.state.currentState > 9) {
       this.activateAdviceModal(11);
     } else if (this.state.currentState === 0) {
       this.activateAdviceModal(0);

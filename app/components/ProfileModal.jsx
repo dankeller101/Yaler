@@ -16,7 +16,7 @@ var ProfileModal = React.createClass({
             <ProfilePane
               name={this.props.name}
               age={this.props.age}
-              profileIMG="https://lookaside.facebook.com/platform/profilepic/?asid=1815247825152279&height=250&width=250"
+              profileIMG={this.props.photo}
               bio={this.props.bio}
             />
           </div>
