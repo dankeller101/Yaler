@@ -11,6 +11,7 @@ var baseFirebase = require('firebase');
 var Chat = require('Chat');
 var firebase = require('firebaseapp');
 var graph = require('fbgraph');
+var PrivacyandTos = require('PrivacyandTos');
 
 var Container = React.createClass({
   componentWillMount(){
@@ -281,6 +282,10 @@ And after all, you're my wonderwall
             current_uid={this.state.current_uid}
           />
         }}/>
+        <Route exact path="/privacy"
+          render={(props) => {
+            return <PrivacyandTos/>
+          }}/>
       </Switch>
     </HashRouter>
   );
