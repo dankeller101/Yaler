@@ -67,14 +67,14 @@
 
 .swipe-left-pos {
   position: absolute;
-  left: 35%;
+  left: 28%;
   top: 80%;
 }
 
 .swipe-right-pos {
   position: absolute;
   top: 80%;
-  right: 10%;
+  right: 3%;
 }
 
 .bio-info-pos {

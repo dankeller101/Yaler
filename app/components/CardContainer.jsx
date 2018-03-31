@@ -85,10 +85,10 @@ var CardContainer = React.createClass({
                 </div>
                 <div>
                   <h5 className="swipe-left-pos">
-                    Swipe <i className="icon icon-back"></i> if you want to pass!
+                    Swipe all the way to the <i className="icon icon-back"></i> if you want to pass!
                   </h5>
                   <h5 className="swipe-right-pos">
-                    Swipe <i className="icon icon-forward"></i> if you are interested!
+                    Swipe all the way to the <i className="icon icon-forward"></i> if you are interested!
                   </h5>
                   <h5 className="bio-info-pos">
                     For more info, click on their <i className="icon icon-photo"></i>!
