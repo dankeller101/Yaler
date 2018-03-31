@@ -85,7 +85,7 @@ var CardContainer = React.createClass({
                 </div>
                 <div>
                   <h5 className="swipe-left-pos">
-                    Swipe <i className="icon icon-back"></i> if you aren't interested!
+                    Swipe <i className="icon icon-back"></i> if you want to pass!
                   </h5>
                   <h5 className="swipe-right-pos">
                     Swipe <i className="icon icon-forward"></i> if you are interested!
@@ -98,7 +98,10 @@ var CardContainer = React.createClass({
     if (this.state.currentState < 0) {
       cards = <div className="columns">
                   <div className="column col-12">
-                    <Chat/>
+                    <Chat
+                      handleRefresh={this.resetCurrentState}
+                      handleAdviceModal={this.activateAdviceModal}
+                    />
                   </div>
               </div>;
     }
@@ -114,7 +117,11 @@ var CardContainer = React.createClass({
             </h5>
           </section>
           <section className="navbar-center">
-            {this.props.currentState >= 0 ? "YALER" : "Danny, 22 Messenger"}
+            {this.props.currentState >= 0
+              ? <img src="./img/Logo.png" style={{
+                  height: '40px',
+                }}/>
+              : "Danny, 22 Messenger"}
           </section>
           <section className="navbar-section" style={{
             position: 'relative',
@@ -125,7 +132,7 @@ var CardContainer = React.createClass({
         </header>
         <div className="column col-3">
           <Panel
-            currentState={this.props.currentState}
+            currentState={this.state.currentState}
           />
         </div>
         <div className="column col-9">
@@ -138,6 +145,7 @@ var CardContainer = React.createClass({
            handleActivate={this.activateAdviceModal}
            active={this.state.adviceModal}
            stage={this.state.stageAdviceModal}
+           uid={this.props.uid}
          />
        </div>
        <div>
@@ -163,7 +171,20 @@ var CardContainer = React.createClass({
 
   left: function() {
     event.stopPropagation();
-    this.updateCurrentState();
+    if (this.state.currentState === 20) {
+      this.activateAdviceModal(12)
+    } else if (this.state.currentState === 11) {
+      this.activateAdviceModal(13);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 14) {
+      this.activateAdviceModal(14);
+      this.updateCurrentState();
+    } else if (this.state.currentState === 17) {
+      this.activateAdviceModal(15);
+      this.updateCurrentState();
+    } else {
+      this.updateCurrentState();
+    }
   },
 
   right: function() {
@@ -202,16 +223,15 @@ var CardContainer = React.createClass({
     firebase.writeCurrentState(this.props.uid, -1);
   },
 
-  firstRight: function() {
-    this.setState({
-      open: false,
-    });
-  },
-
   updateCurrentState: function() {
     var newState = this.state.currentState + 1;
     this.setState({currentState: newState});
     firebase.writeCurrentState(this.props.uid, newState);
+  },
+
+  resetCurrentState: function() {
+    this.setState({currentState: 0});
+    firebase.writeCurrentState(this.props.uid, 0);
   },
 });
 

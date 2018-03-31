@@ -63,6 +63,28 @@ var ChatAnswer = React.createClass({
               }
           ],
         },
+        {
+          question:"Can Danny, founder of Yaler and all around cool dude, have your number?",
+          answers:[
+              {
+                content: "Yes.  This app was decently funny and he's actually pretty cute."
+              },
+              {
+                content: "No, but I do think this app was state of the art and cutting edge."
+              },
+              {
+                content: "I'm so confused about what is going on right now."
+              }
+          ],
+        },
+        {
+          question:"For now, the app is over.  Please enjoy your day!  Updates will come soon!",
+          answers:[
+              {
+                content: "Start over from the beginning.  (Please refresh your browser after pressing this button.)"
+              },
+          ],
+        },
       ],
     };
   },

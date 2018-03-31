@@ -21,11 +21,10 @@ var ProfilePane = React.createClass({
         </div>
          <div className="card-footer">
            <div className="btn-group btn-group-block">
-             <button className="btn btn-error">
-               <i className="icon icon-cross"></i>
-             </button>
-             <button className="btn btn-success">
-               <i className="icon icon-check"></i>
+             <button
+               onClick={this.props.onClose}
+               className="btn btn-error">
+               Close
              </button>
            </div>
          </div>

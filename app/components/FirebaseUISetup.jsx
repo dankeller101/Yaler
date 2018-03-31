@@ -6,7 +6,6 @@ var uiConfig = {
   signInSuccessUrl: '/#/profile',
   signInOptions: [
     firebaseApp.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebaseApp.auth.EmailAuthProvider.PROVIDER_ID,
   ],
   // Terms of service url.
   tosUrl: 'localhost:3000/tos',

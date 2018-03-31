@@ -56,7 +56,9 @@ var Profile = React.createClass({
             </h5>
           </section>
           <section className="navbar-center">
-            YALER
+            <img src="./img/Logo.png" style={{
+              height: '40px',
+            }}/>
           </section>
           <section className="navbar-section" style={{
             position: 'relative',

@@ -14,6 +14,7 @@ var ProfileModal = React.createClass({
           >
           <div className="content">
             <ProfilePane
+              onClose={this.props.onClose}
               name={this.props.name}
               age={this.props.age}
               profileIMG={this.props.photo}

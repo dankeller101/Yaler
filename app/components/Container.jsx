@@ -119,7 +119,7 @@ Got drunk and bought a tandem bike
           name: "Danny",
           age: "22",
           bio: <div>Founder of Yaler</div>,
-          photo: "./img/Danny1.jpg",
+          photo: "./img/Danny1.png",
         },
         {
           name: "Isaac",
@@ -140,7 +140,7 @@ Got drunk and bought a tandem bike
           name: "Danny",
           age: "22",
           bio: <div>Rated by mothers across the globe as the perfect future husband</div>,
-          photo: "./img/Danny2.jpg",
+          photo: "./img/Danny2.png",
         },
         {
           name: "Ana",
@@ -167,69 +167,90 @@ Got drunk and bought a tandem bike
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Cole Aronson Groupie</div>,
           photo: "./img/Danny4.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Locke in the streets and hobbes in the sheets</div>,
           photo: "./img/Danny5.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>I'm THAT boy the pipes are calling</div>,
           photo: "./img/DannySci1.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Check out my sound cloud: https://soundcloud.com/user-308577675-250796007</div>,
           photo: "./img/DannySci2.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>
+            Today is gonna be the day
+That they're gonna throw it back to you
+By now you should've somehow
+Realized what you gotta do
+I don't believe that anybody
+Feels the way I do, about you now
+          </div>,
           photo: "./img/DannySci3.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Responsible, caring, willing to not pursue a career and instead provide childcare</div>,
           photo: "./img/DannyVod1.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Respectable enough to bring to any PTA meeting</div>,
           photo: "./img/DannyVod2.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Definitely going to be a great dad someday</div>,
           photo: "./img/DannyVod3.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>
+            Backbeat, the word was on the street
+            That the fire in your heart is out
+            I'm sure you've heard it all before
+            But you never really had a doubt
+            I don't believe that anybody
+            Feels the way I do about you now
+          </div>,
           photo: "./img/DannyJew1.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>
+            And all the roads we have to walk are winding
+And all the lights that lead us there are blinding
+There are many things that I
+Would like to say to you but I don't know how
+Because maybe, you're gonna be the one that saves me
+And after all, you're my wonderwall
+          </div>,
           photo: "./img/DannyJew2.png",
         },
         {
           name: "Danny",
           age: "22",
-          bio: <div>I don’t kiss with tongue, change my mind</div>,
+          bio: <div>Putting the N into NJB.  Well, also, really the J.  And the B.</div>,
           photo: "./img/DannyJew3.png",
-        }
+        },
       ],
     };
   },

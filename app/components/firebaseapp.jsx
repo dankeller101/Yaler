@@ -84,6 +84,11 @@ module.exports = {
       .ref(uid + '/bio')
       .set(bio);
   },
+  writeUserPhone: (uid, phone) => {
+    firebaseDatabase
+      .ref(uid + '/phone')
+      .set(phone);
+  },
   readUserBio: (uid) => {
     if (uid === null) {
       uid = 'null';

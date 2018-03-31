@@ -1,10 +1,12 @@
 var React = require('react');
 var AdviceModal = require('AdviceModal');
+var firebase = require('firebaseapp');
 
 var AdviceModalManager = React.createClass({
 
   getInitialState: function() {
     return {
+      phone: "",
       modals: [
         {
           text:"Hey, in the first message they sent you, they asked when they were going to meet your parents, so we took the initiative and just unmatched them for you.",
@@ -116,8 +118,78 @@ var AdviceModalManager = React.createClass({
             </button>
           </div>,
         },
+        {
+          text: "Congratulations!  You just matched with Danny, 22!  You clearly swiped right.  You definitely did.  Yup. Good choice.",
+          buttons:
+          <div>
+            <button
+              onClick={this.props.handleMatchClose}
+              className="btn btn-primary">
+                Start Chat
+            </button>
+          </div>,
+        },
+        {
+          text: "C'mon, this Danny guy looks like quite a steal.  Don't you want to give him a chance?",
+          buttons:
+          <div>
+            <button
+              onClick={this.props.handleClose}
+              className="btn">No</button>
+              <button
+                onClick={() => {this.props.handleActivate(11)}}
+                className="btn btn-primary">Sure!</button>
+          </div>,
+        },
+        {
+          text: "You know what they say.  Danny could wind up on his feet anywhere, even a parking lot.  Sure 'They' is his mom, but why not reconsider?",
+          buttons:
+          <div>
+            <button
+              onClick={this.props.handleClose}
+              className="btn">No</button>
+              <button
+                onClick={() => {this.props.handleActivate(11)}}
+                className="btn btn-primary">Sure!</button>
+          </div>,
+        },
+        {
+          text: "I heard that Danny is emotionally competent, kind, and some say even a little funny.  Doesn't that sound great?  Once, again, also from his mother, but minor point.",
+          buttons:
+          <div>
+            <button
+              onClick={this.props.handleClose}
+              className="btn">No</button>
+              <button
+                onClick={() => {this.props.handleActivate(11)}}
+                className="btn btn-primary">Sure!</button>
+          </div>,
+        },
+        {
+          text: "Please share your phone number or Facebook name with the dashingly handsome Danny, 22.",
+          buttons:
+          <div>
+            <input type="text" className="form-input" onChange={this.handleChangePhone}/>
+              <button
+                onClick={() => {this.handleSubmitPhone()}}
+                className="btn btn-primary input-group-btn">
+                Submit
+              </button>
+          </div>,
+        },
       ],
     };
+  },
+
+  handleChangePhone: function(event) {
+    this.setState({
+      phone: event.target.value,
+    });
+  },
+
+  handleSubmitPhone: function() {
+    firebase.writeUserPhone(this.props.uid, this.state.phone);
+    this.props.handleClose();
   },
 
   render: function(){

@@ -37,6 +37,20 @@ var Chat = React.createClass({
         id: 0,
         message: "If I had not matched with you, I would have been " + newMessage,
       });
+    } else if (this.state.stage === 3) {
+      newMess = new Message({
+        id: 0,
+        message: newMessage,
+      });
+      if (newMessage === "Yes.  This app was decently funny and he's actually pretty cute.") {
+        this.props.handleAdviceModal(16);
+      }
+    } else if (this.state.stage === 4) {
+      newMess = new Message({
+        id: 0,
+        message: newMessage,
+      });
+      this.props.handleRefresh();
     } else {
       newMess = new Message({
         id: 0,
@@ -68,12 +82,30 @@ var Chat = React.createClass({
           isTyping: false,
         });
       } else if (stage + 1 === 3) {
-        var newMess = new Message({
+        var newMess1 = new Message({
           id: 1,
           message: "Same, i feel the exact same way",
         });
+        var newMess2 = new Message({
+          id: 1,
+          message: "I know this is a bit forward, but could I grab your number?",
+        });
+        var newMesses = [newMess1, newMess2];
         this.setState({
-          messages: this.state.messages.concat(newMess),
+          messages: this.state.messages.concat(newMesses),
+          isTyping: false,
+        });
+      } else if (stage + 1 === 4) {
+        var newMess1 = new Message({
+          id: 1,
+          message: "Sorry, but I need to run now.  I hope you enjoyed the app!",
+        });
+        this.setState({
+          messages: this.state.messages.concat(newMess1),
+          isTyping: false,
+        });
+      } else {
+        this.setState({
           isTyping: false,
         });
       }
